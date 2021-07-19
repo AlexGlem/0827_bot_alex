@@ -18,7 +18,7 @@ if(btnK != undefined){
     setTimeout(function(){
         btnK.click();
     }, 1000);
-}else{
+}else if(location.hostname === "www.google.com"){
     let links = document.links;
     let goNext = true;
     for(let i=0; i<links.length; i++){
@@ -37,4 +37,19 @@ if(btnK != undefined){
             pnnext.click();
         }, 3000);
     }
+}else{
+    let links = document.links;
+    let randomIndex = getIntRandom(0, links.length);
+    let link = links[randomIndex];
+    if(link.href.indexOf(location.hostname) != -1){
+        setTimeout(function(){
+            links[randomIndex].click();
+        }, 2000);
+    }else{
+        location.href = "https://xn----7sbab5aqcbiddtdj1e1g.xn--p1ai/";
+    }
+}
+
+function getIntRandom(min, max){
+    return Math.floor(Math.random()*(max-min)+min);
 }
