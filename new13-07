@@ -5,6 +5,7 @@
 // @description  try to take over the world!
 // @author       Alfimova AV
 // @match        https://www.google.com/*
+// @match        https://xn----7sbab5aqcbiddtdj1e1g.xn--p1ai/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
@@ -14,20 +15,26 @@ let btnK = document.getElementsByName("btnK")[1];
 
 if(btnK != undefined){
     googleInput.value = "как звучит гобой";
-    btnK.click();
+    setTimeout(function(){
+        btnK.click();
+    }, 1000);
 }else{
     let links = document.links;
     let goNext = true;
-    for(let i=0; i<links.lenght; i++){
+    for(let i=0; i<links.length; i++){
         let link = links[i];
         if(link.href.indexOf("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai") != -1){
-            link.click();
+            setTimeout(function(){
+                link.click();
+            }, 3000);
             goNext = false;
             break;
         }
     }
     if(goNext){
         let pnnext = document.getElementById("pnnext");
-        pnnext.click();
+        setTimeout(function(){
+            pnnext.click();
+        }, 3000);
     }
 }
