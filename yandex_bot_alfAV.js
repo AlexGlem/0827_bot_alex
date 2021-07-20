@@ -17,10 +17,14 @@ let word = words[getIntRandom(0, words.length)];
 
 
 if(btnYaGo != undefined){
-    yandexInput.value = word;
-    setTimeout(function(){
-        btnYaGo.click();
-    }, 1000);
+    let i=0;
+    let timerId = setInterval(function(){
+        yandexInput.value = yandexInput.value + word[i++]; // пишем по буквам фразу в ПС
+        if(i==word.length){
+            clearInterval(timerId);
+            btnYaGo.click();
+        }
+    }, 500);
 }else if(location.hostname === "yandex.ru"){
     let links = document.links;
     let goNext = true;
