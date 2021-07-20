@@ -12,9 +12,12 @@
 
 let yandexInput = document.getElementById("text");
 let btnYaGo = document.getElementsByClassName("button mini-suggest__button button_theme_search button_size_search i-bem button_js_inited")[0];
+let words = ["как звучит гобой","флейта","кларнет","валторна","саксофон"];
+let word = words[getIntRandom(0, words.length)];
+
 
 if(btnYaGo != undefined){
-    yandexInput.value = "как звучит барабан";
+    yandexInput.value = word;
     setTimeout(function(){
         btnYaGo.click();
     }, 1000);
